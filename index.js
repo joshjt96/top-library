@@ -19,7 +19,11 @@ function addBookToLib() {
     let book = new Book(title, author, pages, read);
     myLibrary.push(book);
 };
-
+// Function that loops through array and displays each book on page
+myLibrary.forEach(function(books){
+    let bookDisplay = document.querySelector('.books');
+    bookDisplay.textContent = JSON.stringify(myLibrary);
+});
 // forEach loop that loops through the array and displays the objects (arrow function, console log)
 myLibrary.forEach(books => console.table(books));
 // forEach loop with DOM to display books on frontend:
@@ -28,6 +32,3 @@ myLibrary.forEach(books => console.table(books));
 //     bookInfo.textContent = books;
 //     document.body.appendChild(bookInfo);
 // })
-
-// const mobyDick = new Book('Moby Dick', 'Herman Melville', '427', 'have not')
-// const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'have not')
