@@ -10,21 +10,43 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function() {
-        return this.title + ' by ' + this.author + ' is ' + this.pages + ' pages long, and I ' + this.read + ' read it.'
-    };
 };
+
 // Function to take user input and store this new book object in the myLibrary array
-function addBookToLib() {
+function addBookToLib(title, author, pages, read) {
     let book = new Book(title, author, pages, read);
     myLibrary.push(book);
 };
-// Function that loops through array and displays each book on page
-myLibrary.forEach(function(books){
-    let bookDisplay = document.querySelector('.books');
-    bookDisplay.textContent = JSON.stringify(myLibrary);
+
+addBookToLib.prototype = Object.create(Book.prototype);
+
+// Make form hidden on page load:
+form.style.display = 'none';
+
+// New book button that displays form when clicked:
+const btn = document.getElementById('newBook');
+btn.addEventListener('click', () => {
+    const form = document.getElementById('form');
+    if (form.style.display == 'none') {
+        form.style.display = 'block';
+    } else {
+        form.style.display = 'none';
+    }
 });
-// forEach loop that loops through the array and displays the objects (arrow function, console log)
+
+// Hide form when new book is saved
+const saveBtn = document.getElementById('save');
+saveBtn.addEventListener('click', () => {
+    form.style.display = 'none';
+});
+
+// Event listener to call addToLib function when save button clicked
+saveBtn.addEventListener('click', () => {
+        let book = new Book();
+        myLibrary.push(book);
+    });
+
+    // forEach loop that loops through the array and displays the objects (arrow function, console log)
 myLibrary.forEach(books => console.table(books));
 // forEach loop with DOM to display books on frontend:
 // myLibrary.forEach (function(books){

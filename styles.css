@@ -1,3 +1,18 @@
 * {
     
 }
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    padding: 50px;
+}
+
+.service-card {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    border-left: solid #d22435 8px;
+    box-shadow: 2px 2px 5px;
+    text-align: center;
+}
