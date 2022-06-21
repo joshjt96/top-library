@@ -41,7 +41,17 @@ addToLib('Hello', 'There', '427', false);
 addToLib('Issme', 'Mario', '427', false);
 displayBook();
 
-
+// New book button that displays form when clicked:
+form.style.display = 'none';
+const btn = document.getElementById('newBook');
+btn.addEventListener('click', () => {
+    const form = document.getElementById('form');
+    if (form.style.display == 'none') {
+        form.style.display = 'block';
+    } else {
+        form.style.display = 'none';
+    }
+});
 
 
 
