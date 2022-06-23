@@ -76,7 +76,7 @@ function userInput() {
     addToLib(titleInput, authorInput, pageInput, readInput);
 
     // Reset form after submission
-    document.getElementById('form').reset();
+    document.getElementById('book-form').reset();
 }
 
 // Event listener to reset form:
