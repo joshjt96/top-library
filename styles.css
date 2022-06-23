@@ -3,7 +3,6 @@
 }
 
 .form {
-    border: 1px solid red;
     text-align: center;
     height: 20vh;
 }
@@ -35,4 +34,10 @@
     text-align: center;
     height: 400px;
     display: grid;
+}
+
+.books .card .remove-button {
+    margin: auto;
+    width: 100px;
+    text-align: center;
 }

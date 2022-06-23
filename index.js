@@ -34,6 +34,7 @@ function displayBook() {
     myLibrary.forEach(myLibrary => {
         const card = document.createElement('div');
         card.classList.add('card');
+        // card.id = 'card-id';
         books.appendChild(card);
         for (let key in myLibrary) {
             console.log(`${key}: ${myLibrary[key]}`);
@@ -41,6 +42,19 @@ function displayBook() {
             para.textContent = (`${key}: ${myLibrary[key]}`);
             card.appendChild(para);
         }
+    });
+    addRemoveBtn()
+};
+
+function addRemoveBtn() {
+    // Adding button to card to remove book from library
+    const cardSelect = document.querySelectorAll('.card');
+    cardSelect.forEach(cardSelect => {
+        const removeBtn = Object.assign(document.createElement('button'), {
+            type: 'button'
+        });
+        cardSelect.appendChild(removeBtn);
+        removeBtn.textContent = 'Remove Book';
     });
 };
 
