@@ -1,7 +1,7 @@
 // Array to store books
 let myLibrary = [
-    // { title: 'Moby Dick', author: 'Herman Melville', pages: '427', read: 'No' },
-    // { title: 'The Hobbit', author: 'J.R.R Tolkien', pages: '295', read: 'No' },
+    { title: 'Moby Dick', author: 'Herman Melville', pages: '427', read: 'No' },
+    { title: 'The Hobbit', author: 'J.R.R Tolkien', pages: '295', read: 'No' },
 ];
 
 // Object constructor
@@ -23,12 +23,12 @@ function addToLib(title, author, pages, read) {
 function displayBook() {
     const books = document.querySelector('.books');
 
-    // for loop to remove previously displaye card before looping over array again
-    // const removeCard = document.querySelectorAll('.book');
-    // console.log('Show the node count of current card divs....', removeCard);
-    // for (let i = 0; i < removeCard.length; i++) {
-    //     removeCard[i].remove();
-    // }
+    // for loop to remove previously displayed card before looping over array again
+    const removeCard = document.querySelectorAll('.card');
+    console.log('Show the node count of current card divs....', removeCard);
+    for (let i = 0; i < removeCard.length; i++) {
+        removeCard[i].remove();
+    };
 
     // ForEach loop to display the object values to the cards
     myLibrary.forEach(myLibrary => {
@@ -76,9 +76,14 @@ function userInput() {
     addToLib(titleInput, authorInput, pageInput, readInput);
 
     // Reset form after submission
-    // document.getElementById('form').reset;
+    document.getElementById('form').reset();
 }
 
+// Event listener to reset form:
+const resetButton = document.querySelector('.reset-button');
+resetButton.addEventListener('click', () => {
+    document.getElementById('book-form').reset();
+});
 
 
 
