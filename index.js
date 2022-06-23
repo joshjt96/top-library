@@ -1,7 +1,7 @@
 // Array to store books
 let myLibrary = [
-    { title: 'Moby Dick', author: 'Herman Melville', pages: '427', read: false },
-    { title: 'The Hobbit', author: 'J.R.R Tolkien', pages: '295', read: false },
+    // { title: 'Moby Dick', author: 'Herman Melville', pages: '427', read: 'No' },
+    // { title: 'The Hobbit', author: 'J.R.R Tolkien', pages: '295', read: 'No' },
 ];
 
 // Object constructor
@@ -16,11 +16,20 @@ function Book(title, author, pages, read) {
 function addToLib(title, author, pages, read) {
     let book = new Book(title, author, pages, read);
     myLibrary.push(book);
+    displayBook();
 };
 
 // Function to display books on page
 function displayBook() {
     const books = document.querySelector('.books');
+
+    // for loop to remove previously displaye card before looping over array again
+    // const removeCard = document.querySelectorAll('.book');
+    // console.log('Show the node count of current card divs....', removeCard);
+    // for (let i = 0; i < removeCard.length; i++) {
+    //     removeCard[i].remove();
+    // }
+
     // ForEach loop to display the object values to the cards
     myLibrary.forEach(myLibrary => {
         const card = document.createElement('div');
@@ -35,11 +44,10 @@ function displayBook() {
     });
 };
 
-addToLib('The Great Gatsby', 'F Scott Fitzgerald', '427', false);
-addToLib('Example', 'Noone', '427', false);
+// addToLib('The Great Gatsby', 'F Scott Fitzgerald', '427', false);
+// addToLib('Example', 'Noone', '427', false);
 // addToLib('Hello', 'There', '427', false);
 // addToLib('Issme', 'Mario', '427', false);
-displayBook();
 
 // New book button that displays form when clicked:
 form.style.display = 'none';
@@ -53,7 +61,23 @@ btn.addEventListener('click', () => {
     }
 });
 
+// Query selector/event listener to add user input to array:
+const submitButton = document.querySelector('.submit-button');
+submitButton.addEventListener('click', userInput);
 
+// Function to get value of user input and add this to variables
+function userInput() {
+    let titleInput = document.getElementById('title').value;
+    let authorInput = document.getElementById('author').value;
+    let pageInput = document.getElementById('page').value;
+    let readInput = document.getElementById('read').value;
+
+    // Call addToLib to add user entry
+    addToLib(titleInput, authorInput, pageInput, readInput);
+
+    // Reset form after submission
+    // document.getElementById('form').reset;
+}
 
 
 
