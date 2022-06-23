@@ -37,13 +37,13 @@ function displayBook() {
 
 addToLib('The Great Gatsby', 'F Scott Fitzgerald', '427', false);
 addToLib('Example', 'Noone', '427', false);
-addToLib('Hello', 'There', '427', false);
-addToLib('Issme', 'Mario', '427', false);
+// addToLib('Hello', 'There', '427', false);
+// addToLib('Issme', 'Mario', '427', false);
 displayBook();
 
 // New book button that displays form when clicked:
 form.style.display = 'none';
-const btn = document.getElementById('newBook');
+const btn = document.getElementById('new-book');
 btn.addEventListener('click', () => {
     const form = document.getElementById('form');
     if (form.style.display == 'none') {

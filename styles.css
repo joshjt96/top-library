@@ -2,6 +2,23 @@
     
 }
 
+.form {
+    border: 1px solid red;
+    text-align: center;
+    height: 20vh;
+}
+
+.form-input {
+   
+}
+
+.new-book {
+    border: 1px solid red;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr 2fr;
