@@ -25,7 +25,6 @@ function displayBook() {
 
     // for loop to remove previously displayed card before looping over array again
     const removeCard = document.querySelectorAll('.card');
-    console.log('Show the node count of current card divs....', removeCard);
     for (let i = 0; i < removeCard.length; i++) {
         removeCard[i].remove();
     };
@@ -34,10 +33,8 @@ function displayBook() {
     myLibrary.forEach(myLibrary => {
         const card = document.createElement('div');
         card.classList.add('card');
-        // card.id = 'card-id';
         books.appendChild(card);
         for (let key in myLibrary) {
-            console.log(`${key}: ${myLibrary[key]}`);
             const para = document.createElement('p');
             para.textContent = (`${key}: ${myLibrary[key]}`);
             card.appendChild(para);
@@ -46,8 +43,8 @@ function displayBook() {
     addRemoveBtn()
 };
 
+// Adding button to card to remove book from library and add class attribute for each object card
 function addRemoveBtn() {
-    // Adding button to card to remove book from library
     const cardSelect = document.querySelectorAll('.card');
     cardSelect.forEach(cardSelect => {
         const removeBtn = Object.assign(document.createElement('button'), {
@@ -56,6 +53,19 @@ function addRemoveBtn() {
         removeBtn.classList.add('remove-button');
         cardSelect.appendChild(removeBtn);
         removeBtn.textContent = 'Remove Book';
+        // Link the data attribute of the remove button to the array and card
+        let index = Number('0');
+        removeBtn.dataset.library = index;
+        index++;
+        console.log(removeBtn.dataset.library);
+        // Event listener to remove object from card, with function to remove object from array
+        removeBtn.addEventListener('click', removeBook());
+        function removeBook() {
+            let bookToRemove = removeBtn.dataset.library;
+            myLibrary.splice(bookToRemove, 1);
+            const cardToRemove = document.querySelector('.card');
+            cardToRemove.remove;
+        }
     });
 };
 
