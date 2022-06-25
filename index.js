@@ -53,6 +53,7 @@ function addRemoveBtn() {
         const removeBtn = Object.assign(document.createElement('button'), {
             type: 'button'
         });
+        removeBtn.classList.add('remove-button');
         cardSelect.appendChild(removeBtn);
         removeBtn.textContent = 'Remove Book';
     });
