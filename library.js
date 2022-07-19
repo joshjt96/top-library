@@ -43,10 +43,31 @@ function displayBook() {
         // Create remove book button and add class attribute for each array card
         const removeBookButton = document.createElement('button');
         removeBookButton.classList.add('remove-button');
-        removeBookButton.textContent = "Remove Book V2"
+        removeBookButton.textContent = "Remove From Library"
         removeBookButton.dataset.linkedArray = index;
-        index++;
         card.appendChild(removeBookButton);
+
+        // Create switch read status button
+        const changeReadStatus = document.createElement('button');
+        changeReadStatus.classList.add('remove-button');
+        changeReadStatus.textContent = "Toggle Read"
+        changeReadStatus.dataset.linkedArray = index;
+        card.appendChild(changeReadStatus);
+
+        changeReadStatus.addEventListener('click', toggleRead);
+        function toggleRead() {
+            let getBookToToggle = changeReadStatus.dataset.linkedArray;
+            Book.prototype = Object.create(Book.prototype);
+            const toggleBook = new Book();
+            if ((myLibrary[parseInt(getBookToToggle)].read) == "Yes") {
+                toggleBook.read = "No";
+                myLibrary[parseInt(getBookToToggle)].read = toggleBook.read;
+            } else if ((myLibrary[parseInt(getBookToToggle)].read) == "No") {
+                toggleBook.read = "Yes";
+                myLibrary[parseInt(getBookToToggle)].read = toggleBook.read;
+            };
+        displayBook();
+        };
 
         // Start event listener to remove array item from array and card from parent div via the dataset link
         removeBookButton.addEventListener('click', removeBookFromLib);
@@ -57,6 +78,7 @@ function displayBook() {
             card.remove();
             displayBook();
         };
+    index++;
     });
 };
 
