@@ -33,16 +33,19 @@ function displayBook() {
         card.classList.add('card');
         books.appendChild(card);
 
+        // Loop over array keys and values and display to each card
+        for (let key in myLibrarys) {
+            const para = document.createElement('p');
+            para.textContent = (`${key}: ${myLibrarys[key]}`);
+            card.appendChild(para);
+        };
+
         // Create remove book button and add class attribute for each array card
         const removeBookButton = document.createElement('button');
         removeBookButton.classList.add('remove-button');
         removeBookButton.textContent = "Remove Book V2"
-        // console.log('Show me my current array objects inside of foreach....', myLibrary);
-
-        // Link data attribute of the remove button to the array and card
         removeBookButton.dataset.linkedArray = index;
         index++;
-        // console.log('Show me the dataset that is linked back to the array...', removeBookButton.dataset.linkedArray);
         card.appendChild(removeBookButton);
 
         // Start event listener to remove array item from array and card from parent div via the dataset link
@@ -53,13 +56,6 @@ function displayBook() {
             myLibrary.splice(parseInt(getBookToRemove), 1);
             card.remove();
             displayBook();
-        };
-
-        // Loop over array keys and values and display to each card
-        for (let key in myLibrarys) {
-            const para = document.createElement('p');
-            para.textContent = (`${key}: ${myLibrarys[key]}`);
-            card.appendChild(para);
         };
     });
 };
