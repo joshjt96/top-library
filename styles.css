@@ -33,6 +33,7 @@
     background-color: antiquewhite;
     text-align: center;
     height: 400px;
+    width: 300px;
     display: grid;
 }
 
