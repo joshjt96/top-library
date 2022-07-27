@@ -5,11 +5,20 @@ let myLibrary = [
 ];
 
 // Object constructor
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+// function Book(title, author, pages, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+// };
+// Book Class
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    };
 };
 
 // Function to take user input and store this new book object in the myLibrary array
